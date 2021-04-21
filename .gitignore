@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/**
+.idea/
+*.pyc
+*.cpython-38.pyc
+**/__pycache__/**
+**/migrations/**
+*.*.pyc
+!/.gitignore
+
