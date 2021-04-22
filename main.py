@@ -49,7 +49,7 @@ def pdf_from_api(token, file_name):
         print('generating pdf...')
         secret_phrase = ''
         paper_options = {
-            'url': 'http://77.68.7.117/newsletter/pnl/report/?token=' + token + '&path=' + file_name,
+            'url': 'https://77.68.7.117/pnl/report/?token=' + token + '&path=' + file_name,
             'paper': 'A4',
             'orientation': 'landscape',
             'media': 'screen',
