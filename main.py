@@ -44,12 +44,12 @@ def remove_last_page(pdf_file, out_file):
             writer.write(f1)
 
 
-def pdf_from_api(token, file_name):
+def pdf_from_api(token, file_name, context):
     try:
         print('generating pdf...')
         secret_phrase = ''
         paper_options = {
-            'url': 'https://77.68.7.117/pnl/report/?token=' + token + '&path=' + file_name,
+            'url': 'https://77.68.7.117/pnl/report/?token=' + token + '&path=' + file_name + '&context=' + context,
             'paper': 'A4',
             'orientation': 'landscape',
             'media': 'screen',
@@ -71,8 +71,8 @@ def pdf_from_api(token, file_name):
     return output_pdf
 
 
-def generate_pdf(path, token):
-    output_pdf_origin = pdf_from_api(token, path)
+def generate_pdf(path, token, context):
+    output_pdf_origin = pdf_from_api(token, path, context)
     if output_pdf_origin:
         pnl_final = path + '.pdf'
         remove_last_page(output_pdf_origin, pnl_final)
@@ -81,6 +81,6 @@ def generate_pdf(path, token):
 
 path = 'reports/report_5swp.json'
 token = 'eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDA'
+pnl_context = 'bottomline'
 
-
-generate_pdf(path, token)
+generate_pdf(path, token, pnl_context)
